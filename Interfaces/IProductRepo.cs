@@ -6,6 +6,7 @@ namespace Moviey_Back.Interfaces
     {
         public void Add(Product product);
         public List<Product> GetAll();
+        public List<Product> GetProductsByType(string str);
         public Product GetById(int id);
         public void Update(Product product);
         public void Delete(int id);

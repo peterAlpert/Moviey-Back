@@ -21,6 +21,10 @@ namespace Moviey_Back
                 options.UseSqlServer(builder.Configuration.GetConnectionString("cs"));
             });
 
+            builder.Services.AddCors(options => options.AddPolicy(name: "AppOrigins",
+            policy => { policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader(); }));
+
+
             //register for repositories
             builder.Services.AddScoped<IProductRepo, ProductRepo>();
             builder.Services.AddScoped<ICommentRepo, CommentRepo>();
@@ -39,6 +43,9 @@ namespace Moviey_Back
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors("AppOrigins");
+
 
             app.UseStaticFiles();
 

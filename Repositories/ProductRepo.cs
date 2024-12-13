@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using Moviey_Back.Interfaces;
 using Moviey_Back.Models;
 
@@ -46,5 +47,16 @@ namespace Moviey_Back.Repositories
         {
             Context.Update(product);
         }
+
+        public List<Product> GetProductsByType(string str)
+        {
+            List<Product> products = Context.products
+                .Where(p => p.Type == str).
+                ToList();
+
+            return  products;
+        }
+
+        
     }
 }

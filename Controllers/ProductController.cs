@@ -34,6 +34,27 @@ namespace Moviey_Back.Controllers
             return Ok(product);
         }
 
+        [HttpGet("GetProductsByType")]
+        public IActionResult GetProductsByType(string str)
+        {
+            List<Product> products = ProductRepo.GetProductsByType(str);
+            
+            if (products == null)
+            {
+                return BadRequest("there is no products");
+            }
+            return Ok(products);
+        }
+
+        
+
+        [HttpPost]
+        public IActionResult AddProduct(Product product) { 
+           ProductRepo.Add(product);
+            ProductRepo.Save();
+            return Ok(product);
+        }
+
 
     }
 }
