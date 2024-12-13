@@ -1,4 +1,5 @@
-﻿using Moviey_Back.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using Moviey_Back.Interfaces;
 using Moviey_Back.Models;
 
 namespace Moviey_Back.Repositories

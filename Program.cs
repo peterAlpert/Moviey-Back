@@ -24,6 +24,7 @@ namespace Moviey_Back
             //register for repositories
             builder.Services.AddScoped<IProductRepo, ProductRepo>();
             builder.Services.AddScoped<ICommentRepo, CommentRepo>();
+            builder.Services.AddScoped<IWatchlistRepo, WatchlistRepo>();
 
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
